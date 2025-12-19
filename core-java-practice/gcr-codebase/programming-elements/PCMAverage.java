@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.function.Supplier;
 
 
-public class averagemarks {
+public class PCMAverage {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Supplier<Integer> getmarks = ()-> sc.nextInt();
