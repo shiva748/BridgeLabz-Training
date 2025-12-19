@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class pendistribution {
+public class DistributePen {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Please enter total number of pen's:- ");
