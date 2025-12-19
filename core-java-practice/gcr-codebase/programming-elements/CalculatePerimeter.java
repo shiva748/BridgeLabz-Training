@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class perimeter {
+public class CalculatePerimeter {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Please enter length:- ");
