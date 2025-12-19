@@ -1,6 +1,6 @@
 import  java.util.Scanner;
 
-public class profitloss {
+public class CalculateProfitLoss {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Please enter C.P:- ");
