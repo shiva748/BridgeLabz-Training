@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class simpleinterest {
+public class SimpleIntrestCalculator {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
