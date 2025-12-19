@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class calculator {
+public class BasicCalculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Please enter two numbers:- ");
