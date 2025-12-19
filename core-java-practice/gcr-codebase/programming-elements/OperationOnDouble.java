@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class doubleoperation {
+public class OperationOnDouble {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Please enter three numbers:- ");
