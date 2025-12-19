@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class volume {
+public class VolumeOfCylinder {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
