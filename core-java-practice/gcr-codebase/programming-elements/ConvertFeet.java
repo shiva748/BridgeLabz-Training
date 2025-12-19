@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class distanceconversion {
+public class ConvertFeet {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Please enter you distance in feet's:- ");
