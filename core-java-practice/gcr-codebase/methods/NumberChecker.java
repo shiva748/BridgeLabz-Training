@@ -1,6 +1,4 @@
-import java.lang.Math;
 import java.util.Arrays;
-import java.util.EnumSet;
 
 public class NumberChecker {
 	

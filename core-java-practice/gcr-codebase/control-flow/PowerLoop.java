@@ -9,8 +9,10 @@ public class PowerLoop {
 		System.out.print("Please enter power:- ");
 		int pow = scanner.nextInt();
 		int res = 1;
-		for (int i = 0; i < pow; i++) {
+		int i = 0;
+		while (i < pow) {
 			res *= num;
+			i++;
 		}
 		System.out.println(res);
 		scanner.close();

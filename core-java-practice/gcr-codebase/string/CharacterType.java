@@ -32,7 +32,7 @@ public class CharacterType {
     }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter text");
+        System.out.print("Please enter text: ");
         String text = scanner.nextLine();
         String[][] result = findCharacterTypes(text);
         displayTable(result);

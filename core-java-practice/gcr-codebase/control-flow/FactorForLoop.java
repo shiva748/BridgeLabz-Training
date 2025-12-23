@@ -14,7 +14,6 @@ public class FactorForLoop {
 			}
 		}
 		scanner.close();
-
 	}
 
 }
