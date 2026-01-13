@@ -4,7 +4,7 @@ import org.learn.Performance;
 
 import java.util.concurrent.TimeUnit;
 
-class PerformanceServiceTest {
+class PerformanceTest {
 
     @Test
     @Timeout(value = 2, unit = TimeUnit.SECONDS)
