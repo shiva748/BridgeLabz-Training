@@ -23,7 +23,8 @@ public class EmployeeWriter {
         try (CSVWriter writer = new CSVWriter(new FileWriter("src/main/resources/csv/employee.csv"))) {
             writer.writeNext(new String[]{"ID", "Name", "Department", "Salary"});
             Scanner sc = new Scanner(System.in);
-            int n = 4;
+            System.out.print("Enter number of employees to add: ");
+            int n = Integer.parseInt(sc.nextLine());
             for(int i=0; i<n; i++){
                 writer.writeNext(getDetail(i, sc));
             }
