@@ -33,7 +33,7 @@ class Roundabout {
             newVehicle.next = head;
         }
     }
-
+ 
     public void removeVehicle(String number) {
         if (head == null) {
             System.out.println("Roundabout empty.");
