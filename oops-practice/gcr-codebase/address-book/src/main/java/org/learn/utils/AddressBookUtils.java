@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.util.Scanner;
 
 public class AddressBookUtils {
+    public static  Scanner sc = new Scanner(System.in);
     public static Contact readContact(){
         try{
             Class<?> cls = Contact.class;
