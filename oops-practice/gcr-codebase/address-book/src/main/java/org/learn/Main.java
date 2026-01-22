@@ -9,6 +9,7 @@ public class Main {
         System.out.println("Please select a option.");
         System.out.println("Add a contact:- ( 1 )");
         System.out.println("Update a contact:- ( 2 )");
+        System.out.println("Delete a contact:- ( 3 )");
         System.out.println("Exit address book:- ( -1 )");
     }
 
@@ -28,6 +29,11 @@ public class Main {
                     System.out.println("Please enter all details of contact you want to update.");
                     service.updateContact(AddressBookUtils.readContact());
                     break;
+                case "3":
+                    System.out.println("Please enter first and last name of contact you want to delete.");
+                    String firstName = sc.nextLine();
+                    String lastName = sc.nextLine();
+                    service.deleteContact(firstName, lastName);
                 case "-1":
                     run = false;
                     System.out.println("Thank you for using this program.");

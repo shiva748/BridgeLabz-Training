@@ -46,4 +46,9 @@ public class AddressBookService {
             }
         }
     }
+    public boolean deleteContact(String firstName, String lastName) {
+        addressBook.deleteContact(firstName, lastName);
+        System.out.println("Contact deleted successfully.");
+        return true;
+    }
 }
