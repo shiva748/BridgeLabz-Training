@@ -4,19 +4,34 @@ import org.learn.dao.AddressBook;
 import org.learn.model.Contact;
 import org.learn.utils.AddressBookUtils;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 public class AddressBookService {
-    AddressBook addressBook;
+    HashMap<String, AddressBook> books;
     public AddressBookService() {
-        this.addressBook = new AddressBook();
+        this.books = new HashMap<>();
     }
 
     private boolean checkNull(Object object) {
         return object == null;
     }
-    public boolean addContact(Contact contact) {
+    public boolean addAddressBook(String bookName){
+        if(books.containsKey(bookName)){
+            System.out.println(bookName + " already exists");
+            return false;
+        }
+        books.put(bookName, new AddressBook());
+        return true;
+    }
+
+    public boolean addContact(String bookName,Contact contact) {
         if (checkNull(contact)) {
+            return false;
+        }
+        AddressBook addressBook = books.getOrDefault(bookName,null);
+        if (addressBook == null) {
+            System.out.println("No Address Book Found");
             return false;
         }
         if(addressBook.existsContact(contact)){
@@ -27,8 +42,13 @@ public class AddressBookService {
         System.out.println("Contact added successfully.");
         return true;
     }
-    public boolean updateContact(Contact contact) {
+    public boolean updateContact(String bookName,Contact contact) {
         if (checkNull(contact)) {
+            return false;
+        }
+        AddressBook addressBook = books.getOrDefault(bookName,null);
+        if (addressBook == null) {
+            System.out.println("No Address Book Found");
             return false;
         }
         Optional<Contact> toUpdate = Optional.ofNullable(addressBook.getContact(contact.getFirstName(), contact.getLastName()));
@@ -46,7 +66,12 @@ public class AddressBookService {
             }
         }
     }
-    public boolean deleteContact(String firstName, String lastName) {
+    public boolean deleteContact(String bookName,String firstName, String lastName) {
+        AddressBook addressBook = books.getOrDefault(bookName,null);
+        if (addressBook == null) {
+            System.out.println("No Address Book Found");
+            return false;
+        }
         addressBook.deleteContact(firstName, lastName);
         System.out.println("Contact deleted successfully.");
         return true;
