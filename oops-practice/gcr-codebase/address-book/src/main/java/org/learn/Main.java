@@ -25,24 +25,30 @@ public class Main {
         boolean run = true;
         while(run){
             String input = sc.nextLine();
-            String bookName = readBookName();
+            String bookName;
             switch (input){
                 case "1":
+                    bookName = readBookName();
                     service.addAddressBook(bookName);
                     break;
                 case "2":
+                    bookName = readBookName();
                     service.addContact(bookName,AddressBookUtils.readContact());
                     break;
                 case "3":
+                    bookName = readBookName();
                     System.out.println("Please enter all details of contact you want to update.");
                     service.updateContact(bookName,AddressBookUtils.readContact());
                     break;
                 case "4":
+                    bookName = readBookName();
                     System.out.println("Please enter first and last name of contact you want to delete.");
                     String firstName = sc.nextLine();
                     String lastName = sc.nextLine();
                     service.deleteContact(bookName,firstName, lastName);
                     break;
+                case "5":
+                    System.out.println("Thank you for using our address book.");
                 case "-1":
                     run = false;
                     System.out.println("Thank you for using this program.");
