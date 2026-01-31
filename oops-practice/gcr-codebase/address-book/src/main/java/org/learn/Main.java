@@ -11,6 +11,8 @@ public class Main {
         System.out.println("Add a contact:- ( 2 )");
         System.out.println("Update a contact:- ( 3 )");
         System.out.println("Delete a contact:- ( 4 )");
+        System.out.println("Search contact's by state:- ( 5 )");
+        System.out.println("Search contact's by city:- ( 6 )");
         System.out.println("Exit address book:- ( -1 )");
     }
     public static String readBookName(){
@@ -48,11 +50,15 @@ public class Main {
                     service.deleteContact(bookName,firstName, lastName);
                     break;
                 case "5":
-                    System.out.println("Thank you for using our address book.");
-                case "-1":
-                    run = false;
-                    System.out.println("Thank you for using this program.");
+                    System.out.println("Please name of state.");
+                    service.searchByState(sc.nextLine());
                     break;
+                case "6":
+                    System.out.println("Please name of city.");
+                    service.searchByCity(sc.nextLine());
+                    break;
+                case "-1":
+                    System.out.println("Thank you for using our address book.");
                 default:
                     System.out.println("Invalid input.");
             }
