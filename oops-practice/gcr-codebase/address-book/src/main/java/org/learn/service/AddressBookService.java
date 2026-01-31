@@ -162,7 +162,26 @@ public class AddressBookService {
             String[] params = s.split("_");
             contacts.add(getContact(params[0], params[1], params[2]));
         }
-
         System.out.println(contacts);
     }
+
+    public void countContactsByCity(String city) {
+        List<String> persons = cityDictionary.getCity(city);
+        System.out.print(persons == null ? "No contact's for this city." : persons.size()+" contacts found.");
+    }
+
+    public void countContactsByState(String state) {
+        List<String> persons = stateDictionary.getState(state);
+        System.out.print(persons == null ? "No contact's for this state." : persons.size()+" contacts found.");
+    }
+
+    public void getSortedByName(String bookName) {
+        AddressBook addressBook = books.getOrDefault(bookName, null);
+        if (addressBook == null) {
+            System.out.println("No Address Book Found");
+            return;
+        }
+        System.out.println(addressBook.getSortedByName());
+    }
+
 }

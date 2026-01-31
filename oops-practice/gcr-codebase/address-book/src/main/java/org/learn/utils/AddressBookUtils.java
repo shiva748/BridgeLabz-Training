@@ -1,9 +1,9 @@
 package org.learn.utils;
 
-import org.learn.model.Contact;
-
 import java.lang.reflect.Field;
 import java.util.Scanner;
+
+import org.learn.model.Contact;
 
 public class AddressBookUtils {
     public static  Scanner sc = new Scanner(System.in);

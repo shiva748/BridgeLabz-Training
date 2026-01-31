@@ -15,10 +15,12 @@ public class Main {
         System.out.println("Search contact's by city:- ( 6 )");
         System.out.println("Exit address book:- ( -1 )");
     }
+
     public static String readBookName(){
         System.out.print("Please enter the book name: ");
         return AddressBookUtils.sc.nextLine();
     }
+
     public static void main(String[] args) {
         AddressBookService service = new AddressBookService();
         Scanner sc = AddressBookUtils.sc;
@@ -57,8 +59,22 @@ public class Main {
                     System.out.println("Please name of city.");
                     service.searchByCity(sc.nextLine());
                     break;
+                case "7":
+                    System.out.println("Please name of state.");
+                    service.countContactsByState(sc.nextLine());
+                    break;
+                case "8":
+                    System.out.println("Please name of city.");
+                    service.countContactsByCity(sc.nextLine());
+                    break;
+                case "9":
+                    bookName = readBookName();
+                    service.getSortedByName(bookName);
+                    break;
                 case "-1":
                     System.out.println("Thank you for using our address book.");
+                    run = false;
+                    break;
                 default:
                     System.out.println("Invalid input.");
             }
