@@ -14,10 +14,10 @@ public class Main {
     static  void printOptions(){
         System.out.println("Please select a option.");
         System.out.println("Add Patient:- ( 1 )");
+        System.out.println("Update Patient:- ( 2 )");
         System.out.println("Close Application:- ( -1 )");
     }
     public static void main(String[] args) {
-        Patient p = new Patient();
         Scanner sc = InputUtils.sc;
         Boolean run  = true;
         while (run) {
@@ -28,6 +28,19 @@ public class Main {
                     Patient p1 = InputUtils.read(Patient.class);
                     patientService.addPatient(p1);
                     break;
+                } case "2":{
+                  System.out.print("Search Patient By: (phone/id): ");
+                  String param = sc.nextLine();
+                  if(param.equals("phone")){
+                      System.out.print("Enter Patient Phone Number: ");
+                  }else if(param.equals("id")){
+                      System.out.print("Enter Patient Id: ");
+                  }else{
+                      System.out.println("Invalid Input");
+                      break;
+                  }
+                  patientService.updatePatient(sc.nextLine(), param.equals("phone"));
+                  break;
                 } case "-1":{
                     run = false;
                     break;

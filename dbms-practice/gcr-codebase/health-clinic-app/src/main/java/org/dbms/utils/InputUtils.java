@@ -63,8 +63,12 @@ public class InputUtils {
                         continue;
                     }
 
-                    value = convertValue(field.getType(), input);
-                    break;
+                    try {
+                        value = convertValue(field.getType(), input);
+                        break;
+                    } catch (Exception e) {
+                        System.out.println("Invalid value for " + field.getName() + ". Please try again.");
+                    }
                 }
 
                 cls.getDeclaredMethod(

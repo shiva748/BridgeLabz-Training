@@ -10,4 +10,6 @@ public interface PatientDao {
     public boolean update(Patient p);
 
     public Patient findById(Long id);
+
+    public Patient findByPhone(String phone);
 }
