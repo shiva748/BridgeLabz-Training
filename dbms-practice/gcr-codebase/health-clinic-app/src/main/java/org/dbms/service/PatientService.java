@@ -4,6 +4,9 @@ import org.dbms.dao.PatientDao;
 import org.dbms.dao.PatientDaoImpl;
 import org.dbms.model.Patient;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.dbms.utils.InputUtils.*;
 
 public class PatientService {
@@ -42,12 +45,31 @@ public class PatientService {
             }
         }
     }
+    public void searchPatient(String query, String searchParam ){
+        switch (searchParam){
+            case "Phone":{
+                Patient p = searchPatientByPhone(query);
+                System.out.println(p);
+                break;
+            } case "Id":{
+                Patient p = searchPatientById(Long.parseLong(query));
+                System.out.print(p);
+                break;
+            }case "Name":{
+                List<Patient> patients = patientDao.findByName(query);
+                System.out.println(patients);
+                break;
+            } default:{
+                System.out.print("Invalid search parameter");
+            }
+        }
+    }
 
-    public Patient searchPatientById(Long id) {
+    private Patient searchPatientById(Long id) {
         return patientDao.findById(id);
     }
 
-    public Patient searchPatientByPhone(String phone) {
+    private Patient searchPatientByPhone(String phone) {
         return patientDao.findByPhone(phone);
     }
 }

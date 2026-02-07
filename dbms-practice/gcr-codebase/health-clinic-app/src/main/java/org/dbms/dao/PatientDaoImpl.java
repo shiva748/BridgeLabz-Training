@@ -5,6 +5,8 @@ import org.dbms.model.Patient;
 import org.dbms.utils.ResultSetMapper;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PatientDaoImpl implements PatientDao {
     private Connection connection;
@@ -101,6 +103,25 @@ public class PatientDaoImpl implements PatientDao {
             }
             return null;
         } catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public List<Patient> findByName(String name) {
+        try{
+            String sql = "SELECT * FROM patient WHERE name LIKE ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setString(1, "%"+name+"%");
+            ResultSet rs = pstmt.executeQuery();
+            List<Patient> patients = new ArrayList<>();
+            while (rs.next()) {
+                Patient p = ResultSetMapper.map(rs,  Patient.class);
+                patients.add(p);
+            }
+            return patients;
+        }catch (SQLException e){
             System.out.println("SQLException: " + e.getMessage());
             return null;
         }

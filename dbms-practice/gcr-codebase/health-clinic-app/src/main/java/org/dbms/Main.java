@@ -4,6 +4,7 @@ import org.dbms.model.Patient;
 import org.dbms.service.PatientService;
 import org.dbms.utils.InputUtils;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -15,6 +16,7 @@ public class Main {
         System.out.println("Please select a option.");
         System.out.println("Add Patient:- ( 1 )");
         System.out.println("Update Patient:- ( 2 )");
+        System.out.println("Search Patient:- ( 3 )");
         System.out.println("Close Application:- ( -1 )");
     }
     public static void main(String[] args) {
@@ -29,7 +31,7 @@ public class Main {
                     patientService.addPatient(p1);
                     break;
                 } case "2":{
-                  System.out.print("Search Patient By: (phone/id): ");
+                  System.out.print("Search Patient To Update By? (Phone/Id): ");
                   String param = sc.nextLine();
                   if(param.equals("phone")){
                       System.out.print("Enter Patient Phone Number: ");
@@ -40,6 +42,17 @@ public class Main {
                       break;
                   }
                   patientService.updatePatient(sc.nextLine(), param.equals("phone"));
+                  break;
+                } case "3":{
+                  System.out.print("Search Patient Record By? (Name/Id/Phone): ");
+                  String param = sc.nextLine();
+                  if(!List.of("Name", "Id", "Phone").contains(param)){
+                      System.out.println("Invalid Input");
+                      break;
+                  }
+                  System.out.printf("Enter Patient's %s: ",  param);
+                  String query = sc.nextLine();
+                  patientService.searchPatient(query, param);
                   break;
                 } case "-1":{
                     run = false;
