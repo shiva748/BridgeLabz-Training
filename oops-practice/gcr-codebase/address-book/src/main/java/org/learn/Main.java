@@ -13,6 +13,9 @@ public class Main {
         System.out.println("Delete a contact:- ( 4 )");
         System.out.println("Search contact's by state:- ( 5 )");
         System.out.println("Search contact's by city:- ( 6 )");
+        System.out.println("Count contact's by state:- ( 7 )");
+        System.out.println("Count contact's by city:- ( 8 )");
+        System.out.println("Get contact sorted by name:- ( 9 )");
         System.out.println("Exit address book:- ( -1 )");
     }
 
@@ -52,24 +55,23 @@ public class Main {
                     service.deleteContact(bookName,firstName, lastName);
                     break;
                 case "5":
-                    System.out.println("Please name of state.");
+                    System.out.println("Please enter name of state.");
                     service.searchByState(sc.nextLine());
                     break;
                 case "6":
-                    System.out.println("Please name of city.");
+                    System.out.println("Please enter name of city.");
                     service.searchByCity(sc.nextLine());
                     break;
                 case "7":
-                    System.out.println("Please name of state.");
+                    System.out.println("Please enter name of state.");
                     service.countContactsByState(sc.nextLine());
                     break;
                 case "8":
-                    System.out.println("Please name of city.");
+                    System.out.println("Please enter name of city.");
                     service.countContactsByCity(sc.nextLine());
                     break;
                 case "9":
-                    bookName = readBookName();
-                    service.getSortedByName(bookName);
+                    service.getSortedByName();
                     break;
                 case "-1":
                     System.out.println("Thank you for using our address book.");

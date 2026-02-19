@@ -167,21 +167,17 @@ public class AddressBookService {
 
     public void countContactsByCity(String city) {
         List<String> persons = cityDictionary.getCity(city);
-        System.out.print(persons == null ? "No contact's for this city." : persons.size()+" contacts found.");
+        System.out.println(persons == null ? "No contact's for this city." : persons.size()+" contacts found.");
     }
 
     public void countContactsByState(String state) {
         List<String> persons = stateDictionary.getState(state);
-        System.out.print(persons == null ? "No contact's for this state." : persons.size()+" contacts found.");
+        System.out.println(persons == null ? "No contact's for this state." : persons.size()+" contacts found.");
     }
 
-    public void getSortedByName(String bookName) {
-        AddressBook addressBook = books.getOrDefault(bookName, null);
-        if (addressBook == null) {
-            System.out.println("No Address Book Found");
-            return;
-        }
-        System.out.println(addressBook.getSortedByName());
+    public void getSortedByName() {
+    	List<Contact> allBooksSortedByName = books.entrySet().stream().map(a->a.getValue()).flatMap(a->a.getStream()).sorted((a, b)->(a.getFirstName()+a.getLastName()).compareTo(b.getFirstName()+b.getLastName())).toList();
+        System.out.println(allBooksSortedByName);
     }
 
 }

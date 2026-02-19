@@ -2,11 +2,9 @@ package org.learn.dao;
 
 import org.learn.model.Contact;
 
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AddressBook {
     Map<String, Contact> map;
@@ -38,7 +36,7 @@ public class AddressBook {
         return true;
     }
 
-    public List<Contact> getSortedByName() {
-        return map.values().stream().sorted(Comparator.comparing((c)-> c.getFirstName()+" "+c.getLastName())).collect(Collectors.toList());
+    public Stream<Contact> getStream(){
+    	return map.entrySet().stream().map(a->a.getValue());
     }
 }
