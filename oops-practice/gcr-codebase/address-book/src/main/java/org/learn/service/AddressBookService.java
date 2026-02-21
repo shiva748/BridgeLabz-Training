@@ -7,6 +7,7 @@ import org.learn.model.Contact;
 import org.learn.utils.AddressBookUtils;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
@@ -179,5 +180,22 @@ public class AddressBookService {
     	List<Contact> allBooksSortedByName = books.entrySet().stream().map(a->a.getValue()).flatMap(a->a.getStream()).sorted((a, b)->(a.getFirstName()+a.getLastName()).compareTo(b.getFirstName()+b.getLastName())).toList();
         System.out.println(allBooksSortedByName);
     }
-
+    
+    public void getSortedBy(String option) {
+    	List<Contact> sortedContacts;
+    	switch (option) {
+    	 	case "city":{
+    	 		sortedContacts = books.entrySet().stream().map(a->a.getValue()).flatMap(a -> a.getStream()).sorted(Comparator.comparing(Contact::getCity)).toList();
+    	 		break;
+    	 	}
+    	 	case "state":{
+    	 		sortedContacts = books.entrySet().stream().map(a -> a.getValue()).flatMap(a->a.getStream()).sorted(Comparator.comparing(Contact::getState)).toList();
+    	 		break;
+    	 	}
+    	 	default:{
+    	 		sortedContacts = books.entrySet().stream().map(a->a.getValue()).flatMap(a -> a.getStream()).sorted(Comparator.comparing(Contact::getZip)).toList();
+    	 	}
+    	}
+    	System.out.println(sortedContacts);
+    }
 }

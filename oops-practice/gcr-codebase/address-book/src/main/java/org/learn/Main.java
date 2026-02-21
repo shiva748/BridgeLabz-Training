@@ -2,6 +2,8 @@ package org.learn;
 
 import org.learn.service.AddressBookService;
 import org.learn.utils.AddressBookUtils;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -16,6 +18,7 @@ public class Main {
         System.out.println("Count contact's by state:- ( 7 )");
         System.out.println("Count contact's by city:- ( 8 )");
         System.out.println("Get contact sorted by name:- ( 9 )");
+        System.out.println("Get contact sorted by (city/pincode/state):- ( 10 )");
         System.out.println("Exit address book:- ( -1 )");
     }
 
@@ -73,6 +76,15 @@ public class Main {
                 case "9":
                     service.getSortedByName();
                     break;
+                case "10":
+                	System.out.print("Select a sorting option (city/pincode/state): ");
+                	String option = sc.nextLine();
+                	if(!List.of("city", "state", "pincode").contains(option)) {
+                		System.out.print("Invalid selection.");
+                		break;
+                	}
+                	service.getSortedBy(option);
+                	break;
                 case "-1":
                     System.out.println("Thank you for using our address book.");
                     run = false;

@@ -11,7 +11,6 @@ public class AddressBookUtils {
         try{
             Class<?> cls = Contact.class;
             Field[] fields = cls.getDeclaredFields();
-            Scanner sc = new Scanner(System.in);
             Contact contact = new Contact();
             for(Field field : fields){
                 System.out.printf("Please enter %s: ", field.getName());
